@@ -1,5 +1,10 @@
 // Input Event Listener
-document.getElementById("btnTaskInput").addEventListener("click", addToList);
+document.querySelector("#btnTaskInput").addEventListener("click", addToList);
+document.addEventListener("keydown", function(e) {
+  if (e.key === 'Enter') {
+    document.querySelector("#btnTaskInput").click();
+  }
+})
 
 // Unique ID variable
 let x = 1;
