@@ -72,23 +72,37 @@ select {
     scroll-behavior: auto !important;
   }
 }
+:root {
+  --blue: hsla(197, 71%, 73%, 1);
+  --green: hsla(148, 85%, 68%, 1);
+  --purple: hsla(261, 29%, 60%, 1);
+  --red: hsla(332, 40%, 42%, 1);
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  background-color: hsla(0, 0%, 0%, 0.15);
 }
 
 h1 {
   margin: 1rem;
-  font-size: 48px;
+  font-size: 3rem;
+  color: hsla(0, 0%, 0%, 0.8);
 }
 
 td {
   padding: 1rem;
   font-size: 14px;
-  background-color: #e0e0e0;
+  background-color: var(--purple);
   border-radius: 0.5rem 0 0 0.5rem;
-  border: 1px solid #e0e0e0;
+  border: 1px solid transparent;
+}
+
+footer a {
+  text-decoration: none;
+  color: hsla(0, 0%, 0%, 0.8);
+  font-size: 0.9rem;
 }
 
 footer {
@@ -106,7 +120,7 @@ footer {
 
 .alert {
   display: inline-block;
-  background-color: red;
+  background-color: var(--red);
   color: white;
   margin-top: 1rem;
   padding: 0.75rem;
@@ -114,39 +128,44 @@ footer {
 }
 
 .input {
-  padding: 0.55rem;
-  font-size: 14px;
-  border: none;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .label {
-  font-size: 14px;
-  border: 1px solid #e0e0e0;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
   border-radius: 0.5rem 0 0 0.5rem;
   padding: 0.75rem;
-  background-color: #e0e0e0;
+  background-color: var(--purple);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .btn {
   padding: 0.55rem;
   border-radius: 0 0.5rem 0.5rem 0;
-  border: 1px solid deepskyblue;
-  background-color: deepskyblue;
-  color: white;
-  font-size: 14px;
+  border: 1px solid transparent;
+  background-color: var(--blue);
+  color: hsla(0, 0%, 0%, 0.75);
+  font-size: 0.875rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .btnDone {
   padding: 1rem;
-  background-color: mediumseagreen;
-  color: white;
-  font-size: 14px;
+  background-color: var(--green);
+  color: hsla(0, 0%, 0%, 0.9);
+  font-size: 0.875rem;
   border-radius: 0 0.5rem 0.5rem 0;
-  border: 1px solid mediumseagreen;
+  border: 1px solid transparent;
 }
 
 .btn,
 .btnDone:hover {
   cursor: pointer;
+}
+
+.btn:active,
+.btnDon:active {
+  transform: translateY(2px);
 }

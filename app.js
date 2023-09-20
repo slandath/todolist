@@ -36,7 +36,7 @@ function addToList() {
 
     // Assign ID, class and values
     item.innerText = foo;
-    btn.innerText = "Done";
+    btn.innerText = "\u2713";
     item.id = itemID;
     btn.id = btnID;
     item.className = "item";
