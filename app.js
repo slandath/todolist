@@ -1,71 +1,61 @@
-// Input Event Listener
-document.querySelector("#btnTaskInput").addEventListener("click", addToList);
-document.addEventListener("keydown", function(e) {
-  if (e.key === 'Enter') {
-    document.querySelector("#btnTaskInput").click();
-  }
-})
+const itemName = document.querySelector('#createItem');
+const list = document.querySelector('#list');
 
-// Unique ID variable
-let x = 1;
+document.addEventListener('click', clickHandler);
+document.addEventListener('keyup', keyHandler);
 
-// Show/Hide alert
-function triggerAlert(a, b) {
-  document.getElementById(a).className = b;
-}
-
-function addToList() {
-  let foo = document.getElementById("taskInput").value;
-
-  // Validation
-  if (foo === "") {
-    triggerAlert("alert", "alert");
-    setTimeout(triggerAlert, 3000, "alert", "hidden");
-  } else {
-    // Hide Alert is Visible
-    triggerAlert("alert", "hidden");
-
-    // Create elements to insert in dom
-    let row = document.createElement("tr");
-    let item = document.createElement("td");
-    let btn = document.createElement("button");
-
-    // Create unique ID items and button
-    let itemID = "item" + x;
-    let btnID = "btn" + x;
-
-    // Assign ID, class and values
-    item.innerText = foo;
-    btn.innerText = "\u2713";
-    item.id = itemID;
-    btn.id = btnID;
-    item.className = "item";
-    btn.className = "btnDone";
-    row.className = "trow";
-
-    // Insert into Dom
-    const list = document.getElementById("listHolder");
-    list.appendChild(row);
-    row.appendChild(item);
-    row.appendChild(btn);
-
-    // Attach event listener to done button
-    btn.addEventListener("click", function () {
-      removeFromList(itemID, btnID);
-    });
-
-    // Clear input field
-    document.getElementById("taskInput").value = "";
-
-    // Increment unique ID variable
-    x++;
+function clickHandler(e) {
+  const target = e.target;
+  switch (true) {
+    case target.className === 'button is-success is-small':
+      itemDone(e);
+      break;
+    case target.id === 'createItemBtn':
+      generateList();
+      break;
+    default:
   }
 }
 
-function removeFromList(a, b) {
-  const element1 = document.getElementById(a);
-  const element2 = document.getElementById(b);
-  element1.remove();
-  element2.remove();
-  x--;
+function keyHandler(e) {
+  switch (true) {
+    case e.key === 'Enter':
+      generateList();
+      break;
+    default:
+  }
+}
+
+function CreateListItem() {
+  this.div1 = document.createElement('div');
+  this.div2 = document.createElement('div');
+  this.div3 = document.createElement('div');
+  this.div4 = document.createElement('div');
+  this.li3a = document.createElement('li');
+  this.btn4a = document.createElement('button');
+
+  this.div2.className = 'columns';
+  this.div3.className = 'column';
+  this.div4.className = 'column is-narrow';
+  this.btn4a.className = 'button is-success is-small';
+  this.btn4a.innerText = '\u2714';
+  this.li3a.innerText = itemName.value;
+
+  list.append(this.div1);
+  this.div1.append(this.div2);
+  this.div2.append(this.div3);
+  this.div2.append(this.div4);
+  this.div3.append(this.li3a);
+  this.div4.append(this.btn4a);
+}
+
+function generateList() {
+  list.className = 'box is-flex-direction-column';
+  new CreateListItem();
+  itemName.value = '';
+}
+
+function itemDone(e) {
+  const target = e.target;
+  target.parentElement.parentElement.parentElement.remove();
 }
