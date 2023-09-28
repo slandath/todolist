@@ -1,27 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="has-background-grey-light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/check.png" />
-    <title>To Do List</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="icon" href="images/check.png" />
 </head>
+<title>To Do List</title>
 
 <body>
-    <h1>To Do List</h1>
-    <label for="taskInput" class="label" id="labelTaskInput">Task</label>
-    <input type="text" class="input" id="taskInput">
-    <input type="submit" class="btn" id="btnTaskInput" value="&#43">
-    <div>
-        <p id="alert" class="hidden">You Must Enter a Task!</p>
+  <div class="columns is-centered">
+    <div class="column is-3">
+      <div class="block">
+        <h1 class="title has-text-centered p-1">To Do List</h1>
+      </div>
+      <label for="createItem" class="label">Task</label>
+      <input id="createItem" class="input mb-2" />
+      <div class="block">
+        <button id="createItemBtn" class="button is-info">Add</button>
+      </div>
+      <div class="block">
+        <ul class="box is-flex-direction-column has-background-grey-lighter is-hidden" id="list">
+          <!-- List Item
+            <div data-role="wrapper">
+              <div class="columns">
+                <div class="column">
+                  <li>Item One</li>
+                </div>
+                <div class="column is-narrow">
+                  <button class="button is-success is small">&#x2714;</button>
+                </div>
+              </div>
+            </div>
+          -->
+        </ul>
+      </div>
     </div>
-    <table class="table" id="listHolder"></table>
-    <footer><a href="https://www.flaticon.com/free-icons/correct" title="correct icons">Correct icons created by kliwir
-            art -
-            Flaticon</a></footer>
-    <script src="app.js"></script>
+  </div>
+  <script src="app.js"></script>
 </body>
 
 </html>
